@@ -1,0 +1,39 @@
+function rot13(str) {
+  
+  let alphaIndexNum = {"A":1, "B":2,"C":3,"D":4,"E":5, "F":6, "G":7, "H":8, "I":9, "J":10, "K":11, "L":12, "M":13, "N":14, "O":15, "P":16, "Q":17, "R":18, "S":19, "T":20, "U":21, "V":22, "W":23, "X":24, "Y":25, "Z":26, " ":27, ".":28,"!":29, "?":30};
+
+let numIndexAlpha = {1: "A", 2: "B", 3:"C", 4:"D", 5:"E", 6:"F", 7:"G", 8:"H", 9:"I", 10:"J", 11:"K", 12:"L", 13:"M", 14:"N", 15:"O", 16:"P", 17:"Q", 18:"R", 19:"S", 20:"T", 21:"U", 22:"V", 23:"W", 24:"X", 25:"Y", 26:"Z", 27: " ", 28:".",29:"!",30:"?"};
+//split the str into an arr
+  let arr = str.split('');
+  
+  //assign each character in the string a number and push it into an array called numArr using the object alphaIndexNum
+  let numArr = [];
+  for(let i = 0; i < arr.length; i++){
+    numArr.push(alphaIndexNum[arr[i]])
+  }
+  
+  //in the newArr add 13 to all aphabets and add zero to the  non-alphabetic characters
+  
+  let arrWith13 = [];
+  for(let i = 0; i < numArr.length; i++){
+    if(numArr[i] >= 1 && numArr[i] <= 13){
+      arrWith13.push(numArr[i] + 13);
+    }
+    else if ( numArr[i] > 13 && numArr[i] <= 26){
+      arrWith13.push(13 - (26 - numArr[i]))
+    }
+    else {
+      arrWith13.push(numArr[i])
+    }
+  }
+  
+  let updatedArr = [];
+  for(let i = 0; i < arrWith13.length; i++){
+    updatedArr.push(numIndexAlpha[arrWith13[i]]);
+  }
+  let newStr  = updatedArr.join('');
+ 
+  return newStr;
+}
+
+rot13("SERR PBQR PNZC");

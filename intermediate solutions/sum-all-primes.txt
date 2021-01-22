@@ -1,0 +1,73 @@
+
+
+
+
+
+//make arr of all numbers in range that is not prime
+
+const notPrimesArr = 
+(num) => {
+  let notPrimeNumbers = [];
+  let all = []
+  for(let i = num; i>=1; i--){
+    all.push(i)
+    for(let j = 2; j<i; j++){
+    
+       if(Number.isInteger(i/j)){
+         notPrimeNumbers.push(i)
+       }    
+    }
+  } 
+let notPrimes = [...new Set(notPrimeNumbers)];
+  
+  return notPrimes
+}
+
+const arr1 = notPrimesArr(5);
+
+
+
+
+//make arr of all numbers in the arr
+const allArr = (num) => {
+  let allNums = []
+  for(let i = 2; i <= num; i++){
+    allNums.push(i)
+  }
+  return allNums;
+}
+
+const arr2 = allArr(5)
+
+
+
+//console.log(arr2)
+
+const diffArray = (arr1, arr2) => {
+  var newArr = [];
+  function onlyInFirst(first, second){
+    for( let i = 0; i < first.length; i++){
+      if( second.indexOf(first[i]) === -1){
+        newArr.push(first[i])
+      }
+    }
+  }
+
+  onlyInFirst(arr1, arr2);
+  onlyInFirst(arr2, arr1);
+  return newArr;
+}
+
+const arr3 = diffArray(arr1,arr2);
+
+
+
+function sumPrimes(num) {
+  const arr1 = notPrimesArr(num)
+  const arr2 = allArr(num)
+  const arr3 = diffArray(arr1,arr2)
+  const arr4 = arr3.reduce((a,b) => a+b)
+  return arr4;
+}
+
+console.log(sumPrimes(977));

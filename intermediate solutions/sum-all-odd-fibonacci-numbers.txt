@@ -1,0 +1,27 @@
+function sumFibs(num) {
+  //1, 1, 2, 3, 5 and 8.
+  let fibs = [1,1];
+  let cv = 0
+  while ( fibs[fibs.length - 1] <= num){
+  let lastFib = fibs[fibs.length - 1];
+  let secondLastFib = fibs[fibs.length - 2];
+  cv = lastFib + secondLastFib;
+    fibs.push(cv);
+    cv = 0;
+  }
+  //take out last fib that is greater than num
+  fibs.pop()
+  
+  // get all odd fibs
+  let odds = []
+for ( let i = 0; i< fibs.length; i++){
+  if(fibs[i] % 2 != 0){
+    odds.push(fibs[i])
+  }
+}
+  //add all odds using the reduce function
+  let sumOfOdds  = odds.reduce((a,b) => a+b)
+ return sumOfOdds;
+}
+
+sumFibs(4);

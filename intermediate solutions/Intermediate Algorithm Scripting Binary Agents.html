@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<body>
+
+<script>
+
+function binaryAgent(str) {
+  
+  //split str in to a compound arr into bytes and then bits
+  let bytes = str.split(' ');
+  let binToDec = {0:128, 1:64, 2:32, 3:16, 4:8, 5:4, 6:2, 7:1}
+  let bits  = [];
+  let arr = []
+  for(let i =0; i <  bytes.length; i++){
+    let byte = bytes[i].split('');
+    arr.push(byte)
+    //console.log(byte)
+
+      }
+  let fullArr = [];
+   for(let i = 0; i< arr.length; i++){
+     let newArr = [];
+     for(let j = 0; j<arr[i].length; j++){
+       if(arr[i][j] == "1"){
+         newArr.push(binToDec[j])
+       }
+       else {
+         newArr.push(0)
+       }
+       fullArr.push(newArr);
+       //newArr = [];
+     }
+   }
+    
+  
+  
+  return fullArr;
+}
+
+console.log(binaryAgent("01000001 01110010 01100101 01101100 00100111 01110100 00100000 01100010 01101111 01101010 01100110 00101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"));
+
+</script>
+</body>
+</html>

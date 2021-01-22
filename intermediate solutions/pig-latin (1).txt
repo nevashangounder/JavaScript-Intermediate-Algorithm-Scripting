@@ -1,0 +1,28 @@
+function translatePigLatin(str) {
+  //split str into array
+  let strSplit = str.split('');
+  //declare vowels to find indexOf
+  let vowels = ["a","e","i","o","u"];
+  let newStr;
+  let constCluster = 0;
+  let strLen = str.length;
+  //if string starts with vowel the add "way" to the end
+  if(vowels.indexOf(strSplit[0]) >= 0){
+    newStr = str+"way"   
+  }
+  //if string doesnt start with way the count number on consonants at start
+  else {
+    for(let i = 0; i < strSplit.length; i++){
+      
+      if(vowels.indexOf(strSplit[i]) >= 0){
+        break;
+      }
+       constCluster += 1; 
+    }
+    //slice string from from 1st vowel to end then add constCluster then add ay
+    newStr = str.slice(constCluster,) + str.slice(0,constCluster) + "ay"
+  }
+  return newStr;
+}
+
+translatePigLatin("consonant");

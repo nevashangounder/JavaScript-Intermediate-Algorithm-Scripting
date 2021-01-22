@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+function smallestCommons(arr) {
+  //sort arr smallest to largest
+  let arr1 = arr.sort((a,b) => a - b);
+  
+  //full arr from first index to last
+  let firstIndex = arr1[0];
+  let lastIndex = arr1[arr.length - 1];
+  let fullArr = [];
+  for(let i = firstIndex; i <= lastIndex; i++){
+    fullArr.push(i);
+  }
+  
+  let total = 0.01;
+  let n = 1;
+  let arrTimesN = []
+  while(!Number.isInteger(total)){
+    total = 0; 
+    n++; //2
+    arrTimesN = fullArr.map(item => n/item); 
+    total = arrTimesN.reduce((a,b) => a+b);
+    
+    arrTimesN = []
+  }
+  
+  return n;
+}
+
+
+console.log(smallestCommons([23,18]));
+</script>
+
+</body>
+
+</html>

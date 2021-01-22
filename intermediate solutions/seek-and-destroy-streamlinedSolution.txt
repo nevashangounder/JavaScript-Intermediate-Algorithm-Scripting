@@ -1,0 +1,7 @@
+function destroyer(arr, ...rest) {
+
+  //rest.indexOf(item) === -1 finds all the items from arr array that are not in the rest array. it can then filter for all these items.
+  return arr.filter(item => rest.indexOf(item) === -1);
+}
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));

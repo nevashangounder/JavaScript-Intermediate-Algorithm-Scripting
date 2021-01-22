@@ -1,0 +1,36 @@
+function spinalCase(str) {
+  let arr = str.split('');
+  let regex1 = /_| /;
+  let arr2 = [];
+  for(let i = 0; i < arr.length; i++){
+   arr2.push(arr[i].replace(regex1, "-"))
+  }
+      
+  let arr3 = [arr[0]];
+  let regex2 = /[A-Z]/;
+  let regex3 = /-/;
+  let regex4 = /[a-z]/
+  for(let i = 1; i < arr2.length; i++){
+    if(regex2.test(arr[i + 1]) && !regex1.test(arr[i]) && !regex3.test(arr[i]) && !regex4.test(arr[i])){
+      arr3.push('-');
+      arr3.push(arr2[i])
+    }
+    
+    else if (regex2.test(arr[i]) && regex4.test(arr[i- 1])){
+      
+      arr3.push('-');
+      arr3.push(arr2[i]);
+
+    }
+    
+    else {
+      arr3.push(arr2[i])
+    }
+  }
+  
+  let spinalStr  = arr3.join('');
+  let spinalStrLowerCase = spinalStr.toLowerCase();
+  return spinalStrLowerCase;
+}
+
+spinalCase('This Is Spinal Tap');

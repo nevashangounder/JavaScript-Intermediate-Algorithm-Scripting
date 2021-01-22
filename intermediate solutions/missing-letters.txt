@@ -1,0 +1,19 @@
+function fearNotLetter(str) {
+  const arr = str.split('');
+  const arrASCII = arr.map(item => item.charCodeAt());
+  let missing;
+
+  for(let i = 0; i < arrASCII.length - 1; i++){
+    if(arrASCII[i] != arrASCII[i + 1] - 1){
+      missing = arrASCII[i] + 1;
+      break;
+    }
+  }
+  let missingLetter;
+  if(missing != null){
+    missingLetter = String.fromCharCode(missing);
+  }
+  return missingLetter;
+}
+
+fearNotLetter("abce");

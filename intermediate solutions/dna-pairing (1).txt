@@ -1,0 +1,16 @@
+function pairElement(str) {
+  let basePairs = {"A":["A","T"],"T":["T","A"],"C":["C","G"],"G":["G","C"]}
+  let arr1 = str.split('');
+  let arr2 = [];
+  for(let i = 0; i < arr1.length; i++){
+    arr2.push(basePairs[arr1[i]])
+  }
+ /* arr2.push(basePairs["C"]);
+  arr2.push(basePairs["A"]);
+  arr2.push(basePairs["T"]);
+  */
+  return arr2;
+}
+
+
+pairElement("GCG");
